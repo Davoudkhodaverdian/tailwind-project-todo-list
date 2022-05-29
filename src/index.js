@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 // import HomePage from './homePage/homePage';
-import PricingSections from './pricingSections/pricingSections';
+import PricingSections from './components/pricingSections/pricingSections';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
