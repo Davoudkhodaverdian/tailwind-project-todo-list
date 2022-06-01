@@ -1,5 +1,5 @@
 
-import './propertyPricingCard.css';
+
 
 function propertyPricingCard() {
     return (

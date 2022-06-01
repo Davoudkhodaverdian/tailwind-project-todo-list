@@ -1,5 +1,5 @@
 
-import './pricingCard.css';
+
 import PropertyPricingCard from '../propertyPricingCard/propertyPricingCard';
 
 function pricingCard({ price, time, positionCard }) {

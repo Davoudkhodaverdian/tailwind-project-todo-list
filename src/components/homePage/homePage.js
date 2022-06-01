@@ -1,15 +1,17 @@
 
-import './homePage.css';
+
+import NavBar from './navBar/navBar';
 
 function homePage() {
     return (
-        <div >
-            <h1 className="text-3xl font-bold underline">
-                Hello world!
-            </h1>
-            <h1 className="">
+        <div dir='rtl'>
+            <div>
+                <NavBar />
+            </div>
+
+            <div className='m-4'>
                 به خودت مطمئن باش
-            </h1>
+            </div>
         </div>
     );
 }

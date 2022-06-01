@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import HomePage from './homePage/homePage';
-import PricingSections from './components/pricingSections/pricingSections';
+import HomePage from './components/homePage/homePage';
+// import PricingSections from './components/pricingSections/pricingSections';
 import reportWebVitals from './reportWebVitals';
+// import TodoList from './components/todoList/todoList';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <HomePage /> */}
-    <PricingSections />
+    <HomePage />
+    {/* <PricingSections /> */}
+    {/* <TodoList /> */}
   </React.StrictMode>
 );
 
