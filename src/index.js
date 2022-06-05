@@ -3,13 +3,16 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import HomePage from './components/homePage/homePage';
 import reportWebVitals from './reportWebVitals';
-import TodoList from './components/todoList/todoList';
+import { Provider } from 'react-redux';
+import store from './components/store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <HomePage />
-    {/* <TodoList /> */}
+    <Provider store={store}>
+      <HomePage />
+
+    </Provider>
   </React.StrictMode>
 );
 

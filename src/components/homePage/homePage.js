@@ -1,19 +1,22 @@
 
 
 import NavBar from './navBar/navBar';
+import TodoList from './../todoList/todoList';
+import { useSelector } from 'react-redux'
 
-function homePage() {
+function HomePage() {
+
+    const todo = useSelector(state => state.todo.list)
+    console.log(todo)
     return (
         <div dir='rtl'>
             <div>
                 <NavBar />
             </div>
 
-            <div className='m-4'>
-                به خودت مطمئن باش
-            </div>
+            <TodoList/>
         </div>
     );
 }
 
-export default homePage;
+export default HomePage;
