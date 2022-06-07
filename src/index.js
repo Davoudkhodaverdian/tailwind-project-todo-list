@@ -4,13 +4,17 @@ import './index.css';
 import HomePage from './components/homePage/homePage';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import store from './store/store';
+import { store, persistor } from './store/store';
+import { PersistGate } from 'redux-persist/integration/react'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HomePage />
+      <PersistGate loading={null} persistor={persistor}>
+        <HomePage />
+      </PersistGate>
+
 
     </Provider>
   </React.StrictMode>
