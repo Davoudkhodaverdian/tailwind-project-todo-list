@@ -11,7 +11,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['todo'] // only todo will be persisted
+  whitelist: [] // only this item will be persisted
 
 }
 

@@ -1,7 +1,8 @@
 
-import { removeTodo, toggleDoneTodo,editTodo } from "../../store/slices/todoSlice"
+import { removeTodo, toggleDoneTodo, editTodo } from "../../store/slices/todoSlice"
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
+import axios from "axios";
 
 function TodoItem({ data }) {
 
@@ -10,19 +11,48 @@ function TodoItem({ data }) {
     const dispatch = useDispatch();
 
     //removeTodoHandler sent id to todoSlice removeTodo 
-    const removeTodoHandler = () => {
-        dispatch(removeTodo(data.id))
+    const removeTodoHandler = async () => {
+
+        try {
+            let response = await axios.delete(`https://629ef5bce67470ca4dec9bcb.endapi.io/todos/${data.id}`);
+            dispatch(removeTodo(data.id))
+        } catch (error) {
+            console.log(error)
+
+        }
+
     }
 
     //toggleTodoHandler sent id to todoSlice toggleDoneTodo 
-    const toggleTodoHandler = () => {
-        dispatch(toggleDoneTodo(data.id))
+    const toggleTodoHandler = async () => {
+
+        try {
+            let response = await axios.put(`https://629ef5bce67470ca4dec9bcb.endapi.io/todos/${data.id}`, {
+                done: !data.done
+            });
+            dispatch(toggleDoneTodo(data.id))
+        } catch (error) {
+            console.log(error)
+
+        }
+
     }
 
     //editTodoHandler sent id to todoSlice editTodo 
-    const editTodoHandler = () => {
-        dispatch(editTodo({ id: data.id, text: inputEdit }))
-        seteditItem(false)
+    const editTodoHandler = async () => {
+
+        try {
+            let response = await axios.put(`https://629ef5bce67470ca4dec9bcb.endapi.io/todos/${data.id}`, {
+                text: inputEdit
+            });
+            dispatch(editTodo({ id: data.id, text: inputEdit }))
+            seteditItem(false)
+        } catch (error) {
+            console.log(error)
+
+        }
+
+
     }
 
     //set edit state for current item
