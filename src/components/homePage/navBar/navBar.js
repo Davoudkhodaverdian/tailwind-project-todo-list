@@ -33,7 +33,7 @@ function NavBar() {
                 >
 
                     <a href="#" className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 transition-all">todo list</a>
-                    <a href="#" className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 transition-all">user list</a>
+
 
                 </div>
 
