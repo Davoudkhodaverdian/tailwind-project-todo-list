@@ -25,7 +25,7 @@ function Menubar({ sidebar, sendSidebarState }) {
                     <img className="h-8 w-auto" src={Workflow} alt="Workflow" />
                 </div>
 
-                <MenubarItems />
+                <MenubarItems sendSidebarState={sendSidebarState}/>
             </nav>
 
         </>

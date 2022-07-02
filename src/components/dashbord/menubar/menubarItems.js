@@ -3,8 +3,7 @@ import HomeIcon from './../../../images/home.svg'
 import TeamIcon from './../../../images/team.svg'
 function MenubarItems() {
 
-    console.log(HomeIcon)
-    console.log(TeamIcon)
+
     return (
         <>
             {SidebarData.map(item => (

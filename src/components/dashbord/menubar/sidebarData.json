@@ -10,5 +10,10 @@
         "descreption": "team",
         "name": "تیم",
         "id": 2
+    },
+    {
+        "descreption": "counter",
+        "name": "شمارنده",
+        "id": 3
     }
 ]
