@@ -9,17 +9,17 @@ import { setTodo } from "../../store/slices/todoSlice";
 import { useDispatch } from 'react-redux';
 
 function TodoList() {
-    
+
     const dispatch = useDispatch();
-    const getTodos = async ()=> {
+    const getTodos = async () => {
         let response = await axios.get('https://629ef5bce67470ca4dec9bcb.endapi.io/todos');
         dispatch(setTodo(response.data.data))
-        
+
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         getTodos()
-    },[])
+    }, [])
 
 
     const todo = useSelector((state) => state.todo.list)
@@ -31,14 +31,15 @@ function TodoList() {
             <div className="bg-slate-50 rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
                 <div className="mb-4">
                     <h1 className="text-gray-700">Todo List</h1>
-                    <AddTodo/>
+                    <AddTodo />
                 </div>
                 <div>
                     {
-                        todo.map(item =>  <TodoItem key={item.id} data={item}/>)
+                        todo.length === 0 ? <p className='text-center'>there is nothing to show</p> :
+                            todo.map(item => <TodoItem key={item.id} data={item} />)
                     }
-                   
-     
+
+
                 </div>
             </div>
         </div>

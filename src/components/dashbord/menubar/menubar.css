@@ -1,0 +1,12 @@
+.nav-menu {
+    width: 250px;
+    right: -250px;
+}
+
+.nav-menu-bg {
+    width: 100%;
+}
+
+.active {
+    right: 0;
+}

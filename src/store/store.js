@@ -1,11 +1,13 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import todoSlice from './slices/todoSlice'
+import userListSlice from './slices/userListSlice'
 
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage' // defaults to localStorage for web
 
 const rootReducer = combineReducers({
-  todo: todoSlice
+  todo: todoSlice,
+  user: userListSlice,
 })
 
 const persistConfig = {
