@@ -11,6 +11,7 @@ const userLstSlice = createSlice({
       state.list = payload;
     },
     addUser: (state, action) => {
+      
       state.list.push(action.payload)
     },
     removeUser: (state, action) => {

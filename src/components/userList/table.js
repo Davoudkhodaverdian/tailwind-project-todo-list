@@ -23,7 +23,7 @@ function Table () {
      
         return (
             <div className="shadow border border-slate-200 rounded-lg overflow-hidden text-center">
-                <div className="table-part">
+                <div className="max-h-[300px] overflow-auto">
 
                     <table className="">
                         <thead>

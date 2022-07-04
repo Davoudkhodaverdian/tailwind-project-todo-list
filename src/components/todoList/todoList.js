@@ -33,7 +33,7 @@ function TodoList() {
                     <h1 className="text-gray-700">Todo List</h1>
                     <AddTodo />
                 </div>
-                <div>
+                <div className='max-h-[300px] overflow-auto'>
                     {
                         todo.length === 0 ? <p className='text-center'>there is nothing to show</p> :
                             todo.map(item => <TodoItem key={item.id} data={item} />)
