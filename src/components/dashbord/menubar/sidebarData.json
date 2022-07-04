@@ -2,14 +2,14 @@
 
 [
     {
-        "descreption": "home",
-        "name": "خانه",
-        "id": 1
+        "descreption": "main-page",
+        "name": "صفحه اصلی",
+        "id": 3
     },
     {
-        "descreption": "team",
-        "name": "تیم",
-        "id": 2
+        "descreption": "rdrdrrdrd",
+        "name": "صفحه عادی",
+        "id": 3
     },
     {
         "descreption": "counter",

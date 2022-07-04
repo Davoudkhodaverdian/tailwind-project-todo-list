@@ -1,7 +1,6 @@
 
 
 import Workflow from './../../../images/workflow.svg'
-import './menubar.css'
 import MenubarItems from './menubarItems';
 
 function Menubar({ sidebar, sendSidebarState }) {
@@ -10,12 +9,12 @@ function Menubar({ sidebar, sendSidebarState }) {
         sendSidebarState(false);
 
     }
-
+    
     return (
 
         <>
-            <div className={`nav-menu-bg bg-gray-500/30 h-full ${sidebar ? "" : "hidden"} transition-all absolute sm:hidden`} onClick={hideSidebar}></div>
-            <nav className={`bg-indigo-500 text-white w-64 p-2 nav-menu h-full ${sidebar ? "active" : ""} sm:hidden transition-all absolute`}>
+            <div className={`w-full bg-gray-500/30 ${sidebar ? "" : "hidden"} transition-all absolute sm:hidden overflow-auto h-screen inset-0`} onClick={hideSidebar}></div>
+            <nav className={`bg-indigo-500 text-white w-64 p-2  top-0 right-[-256px] overflow-auto h-screen ${sidebar ? "right-0" : ""} sm:hidden transition-all fixed`}>
                 <div className="p-4" >
                     <button onClick={hideSidebar}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 m-2" viewBox="0 0 20 20" fill="currentColor">
@@ -24,7 +23,6 @@ function Menubar({ sidebar, sendSidebarState }) {
                     </button>
                     <img className="h-8 w-auto" src={Workflow} alt="Workflow" />
                 </div>
-
                 <MenubarItems sendSidebarState={sendSidebarState}/>
             </nav>
 

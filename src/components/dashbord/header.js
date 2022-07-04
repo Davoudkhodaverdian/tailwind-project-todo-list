@@ -1,6 +1,6 @@
 
 import MaleAvatar from './../../images/maleAvatar.svg'
-import { useState } from 'react';
+
 
 function Header({sendSidebarState, sidebar}) {
 
@@ -8,10 +8,8 @@ function Header({sendSidebarState, sidebar}) {
     const showSidebar = (event) => {
         
         event.preventDefault()
-        console.log("clicked button")
         sendSidebarState(!sidebar)
     }
-
 
     return (
         <div className="flex flex-row justify-between shadow h-16 items-center px-2">

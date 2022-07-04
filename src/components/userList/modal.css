@@ -1,0 +1,8 @@
+.modal {
+    
+    top: -450px;
+}
+
+.active {
+    top: 0;
+}

@@ -7,20 +7,25 @@ const userLstSlice = createSlice({
   },
   reducers: {
 
-    setUser: (state, {payload}) => {
+    setUser: (state, { payload }) => {
       state.list = payload;
-    }, 
+    },
     addUser: (state, action) => {
       state.list.push(action.payload)
     },
-    removeUser: (state, {id}) => {
+    removeUser: (state, action) => {
 
-      state.list = state.list.filter(item => item.id !== id)
+      state.list = state.list.filter(item => item.id !== action.payload)
     },
-    editUser: (state,{id, dataChanged}) => {
+    editUser: (state, action) => {
 
+      let { id, dataChanged } = action.payload
       let data = state.list.map(item => {
-        if (item.id === id) item = dataChanged
+        if (item.id === id) {
+          ["name","membershipDate","email","role","title","field","age","workExperience"].forEach(nameItem => {
+            item[nameItem] = dataChanged[nameItem]
+          })
+        }
         return item
       })
       state.list = data
@@ -30,6 +35,6 @@ const userLstSlice = createSlice({
 
 });
 
-export const { addUser,setUser,editUser,removeUser } = userLstSlice.actions
+export const { addUser, setUser, editUser, removeUser } = userLstSlice.actions
 
 export default userLstSlice.reducer;
