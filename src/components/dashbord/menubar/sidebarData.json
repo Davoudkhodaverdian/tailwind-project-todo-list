@@ -2,18 +2,18 @@
 
 [
     {
-        "descreption": "main-page",
-        "name": "صفحه اصلی",
+        "descreption": "صفحه اصلی",
+        "name": "main-page",
         "id": 3
     },
     {
-        "descreption": "rdrdrrdrd",
-        "name": "صفحه عادی",
+        "descreption": "صفحه عادی",
+        "name": "no-subject",
         "id": 3
     },
     {
-        "descreption": "counter",
-        "name": "شمارنده",
+        "descreption": "شمارنده",
+        "name": "counter",
         "id": 3
     }
 ]

@@ -22,9 +22,7 @@ function AddUser() {
                     <button onClick={addUserHandler} className="px-3 py-1 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">Add user</button>
                 </div>
             </div>
-            
             {show  && <Modal show={show} setShow={setShow}/>  }
-            {/* {show  && <ModalComponent show={show} setShow={setShow}/>  } */}
         </div>
 
     );

@@ -1,6 +1,6 @@
 
 
-function NameInput({ setValueInput, name }) {
+function NameInput({ setValueInput }) {
 
     return (
 

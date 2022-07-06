@@ -3,13 +3,24 @@
 import ReactIcon from '../../../images/logo.svg';
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
-
+import { useSelector } from 'react-redux';
+import AccountButton from '../../userAccount/accountButton';
+import { setAuthenticate } from "../../../store/slices/authenticateSlice"
+import { useDispatch } from 'react-redux'
 function Navbar() {
 
+    //this state is for menu of responsive main page
     const [state, setState] = useState(false);
-
     const MenuHandle = () => { setState(prevState => !prevState) }
 
+    const authenticate = useSelector((state) => state.authenticate.authenticate);
+
+    const dispatch = useDispatch()
+    const authenticateHandler = () => {
+        dispatch(setAuthenticate(false))
+    }
+
+    console.log("athentcate: ", authenticate)
     return (
         <nav className=' p-3 bg-gray-100'>
             <div className='flex flex-wrap justify-between items-center container mx-auto'>
@@ -32,21 +43,32 @@ function Navbar() {
                         md:space-x-4 md:space-x-reverse space-y-4 md:space-y-0 mt-2 md:mt-0`
                     }
                 >
-                    <Link to="/todoList">
-                        <button className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">todo list</button>
-                    </Link>
-                    <Link to="/userList">
-                        <button className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">user list</button>
-                    </Link>
-                    <Link to="/dashbord">
-                        <button className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">داشبورد</button>
-                    </Link>
                     <Link to="/">
-                        <button className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">home</button>
+                        <button className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">صفحه اصلی</button>
                     </Link>
-                    <Link to="/sign">
-                        <button className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">ورود/ثبت نام</button>
-                    </Link>
+
+                    {
+                        authenticate ?
+                            <>
+                                <Link to="/dashboard">
+                                    <button className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">داشبرد</button>
+                                </Link>
+                                <button onClick={authenticateHandler}
+                                    className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">خروج</button>
+                                <Link to="/userAccount"><AccountButton /></Link>
+                            </>
+
+                            :
+                            <>
+                                <Link to="/register">
+                                    <button className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">ثبت نام</button>
+                                </Link>
+                                <Link to="/login">
+                                    <button className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">ورود</button>
+                                </Link>
+                            </>
+                    }
+
                 </div>
 
             </div>

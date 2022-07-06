@@ -1,15 +1,15 @@
 
 import BasicLayout from "../main/basicLayout";
 
-function Home() {
+function UserAccount() {
 
   return (
     <BasicLayout>
       <div className="text-center my-3">
-        صفحه اصلی
+        حساب کاربری من
       </div>
     </BasicLayout>
   );
 }
 
-export default Home;
+export default UserAccount;

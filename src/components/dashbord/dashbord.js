@@ -8,11 +8,8 @@ import MenubarDynamic from './menubar/menubarDynamic'
 function Dashbord({children}) {
 
     const [sidebar, setSidebar] = useState(false);
-    const sendSidebarState = (show) => {
-        
-        setSidebar(show)
-    }
-
+    const sendSidebarState = (show) => {setSidebar(show)}
+    
     return (
         <div className='pr-0 sm:flex flex-row overflow-hidden'>
             <Menubar sidebar={sidebar} sendSidebarState={sendSidebarState} />

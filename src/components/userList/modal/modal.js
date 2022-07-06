@@ -2,6 +2,7 @@ import ModalBody from "./modalBody/modalBody";
 
 function Modal({ show, setShow }) {
 
+    //close modal handler
     const closeHandler = () => {
         setShow(false)
     }
