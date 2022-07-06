@@ -2,16 +2,16 @@
 
 [
     {
+        "descreption": "نام",
+        "name": "name",
+        "id": "name",
+        "type": "text"
+    },
+    {
         "descreption": "ایمیل",
         "name": "email",
         "id": "email-address",
         "type": "email"
-    },
-    {
-        "descreption": "نام",
-        "name": "name",
-        "id": "name",
-        "type": "password"
     },
     {
         "descreption": "رمز عبور",

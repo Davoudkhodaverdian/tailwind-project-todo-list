@@ -14,7 +14,7 @@ function Register() {
     const setValueInput = (name, event) => { setState(prevState => ({ ...prevState, [name]: event.target.value })) }
 
     const registerHandler = (event) => {
-        
+
         if (state.name === "" || state.password === "" || state.email === "") {
             event.preventDefault();
             if (state.name === "") alert("نام را به درستی وارد کنید")
@@ -36,8 +36,8 @@ function Register() {
                 </div>
                 <form className=" p-2">
                     {
-                        FieldData.map(item => (
-                            <div className="my-4">
+                        FieldData.map((item, index) => (
+                            <div className="my-4" key={index}>
                                 <label htmlFor={item.id} className="">{item.descreption}</label>
                                 <input id={item.id} name={item.name} type={item.type} required placeholder={item.descreption}
                                     className="appearance-none rounded relative block w-full px-3 py-2 my-1 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
@@ -50,9 +50,10 @@ function Register() {
                         <Link to="/">
                             <input type="submit" name="submit" value="بازگشت" className="px-3 rounded text-white text-center bg-red-500 font-bold drop-shadow hover:bg-red-600 active:bg-red-700 focus:ring focus:ring-red-300 mx-1" />
                         </Link>
-                        <input onClick={registerHandler}
-                            type="submit" name="submit" value="ثبت نام" className="px-3 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300  mx-1"
-                        />
+                        <Link to="/">
+                            <input onClick={registerHandler}
+                                type="submit" name="submit" value="ثبت نام" className="px-3 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300  mx-1" />
+                        </Link>
                     </div>
                 </form>
                 <Link to="/login"><div>قبلا ثبت نام کرده اید</div></Link>

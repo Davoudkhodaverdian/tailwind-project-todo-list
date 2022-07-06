@@ -1,6 +1,6 @@
 
-import MaleAvatar from './../../images/maleAvatar.svg'
 
+import AccountItems from '../account/items';
 
 function Header({ sendSidebarState, sidebar }) {
 
@@ -24,11 +24,7 @@ function Header({ sendSidebarState, sidebar }) {
             </div>
 
             <div>
-                <button className="flex flex-row items-center">
-                    <span className="px-2">حساب کاربری من</span>
-                    {/* avatar svg */}
-                    <img src={MaleAvatar} width={24} alt="avatar" />
-                </button>
+            <AccountItems />
             </div>
         </div>
     )

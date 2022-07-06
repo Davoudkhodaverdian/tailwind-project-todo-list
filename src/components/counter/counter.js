@@ -2,7 +2,7 @@
 import IncrementCounter from "./incrementCounter"
 import DecrementCounter from "./decrementCounter"
 import { useSelector } from 'react-redux'
-import DashboardLayout from "../dashbord/dashboardLayout"
+import DashboardLayout from "../dashboard/dashboardLayout"
 
 
 function Counter() {

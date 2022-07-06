@@ -1,5 +1,5 @@
 
-import Dashbord from "./dashbord";
+import Dashbord from "./dashboard";
 
 
 function DashboardLayout({ children }) {

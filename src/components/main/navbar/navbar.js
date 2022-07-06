@@ -1,12 +1,11 @@
 
 
 import ReactIcon from '../../../images/logo.svg';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link } from "react-router-dom";
 import { useSelector } from 'react-redux';
-import AccountButton from '../../userAccount/accountButton';
-import { setAuthenticate } from "../../../store/slices/authenticateSlice"
-import { useDispatch } from 'react-redux'
+import AccountItems from '../../account/items';
+
 function Navbar() {
 
     //this state is for menu of responsive main page
@@ -15,12 +14,7 @@ function Navbar() {
 
     const authenticate = useSelector((state) => state.authenticate.authenticate);
 
-    const dispatch = useDispatch()
-    const authenticateHandler = () => {
-        dispatch(setAuthenticate(false))
-    }
 
-    console.log("athentcate: ", authenticate)
     return (
         <nav className=' p-3 bg-gray-100'>
             <div className='flex flex-wrap justify-between items-center container mx-auto'>
@@ -51,11 +45,9 @@ function Navbar() {
                         authenticate ?
                             <>
                                 <Link to="/dashboard">
-                                    <button className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">داشبرد</button>
+                                    <button className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">داشبورد</button>
                                 </Link>
-                                <button onClick={authenticateHandler}
-                                    className="px-3 rounded-lg text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300 ">خروج</button>
-                                <Link to="/userAccount"><AccountButton /></Link>
+                                <AccountItems />
                             </>
 
                             :
