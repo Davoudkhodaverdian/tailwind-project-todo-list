@@ -16,7 +16,7 @@ const articlesSlice = createSlice({
         editArticle: (state, action) => {
             let dataChanged = action.payload
             let data = state.articles.map(item => {
-              debugger
+              
               if (item.id === dataChanged.id) {
                 ["body", "creator", "title"].forEach(nameItem => {
                   item[nameItem] = (nameItem === "userPassword"|| nameItem === "id") ? item[nameItem] : dataChanged[nameItem]

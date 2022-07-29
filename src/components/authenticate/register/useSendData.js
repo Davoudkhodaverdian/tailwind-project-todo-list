@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { useState } from 'react';
 import observable from '../../patterns/observable';
@@ -26,9 +26,9 @@ export default function useSendData(state) {
                 method: "POST",
                 body: JSON.stringify(values),
                 headers: { 'Content-Type': 'application/json', 'charset': 'utf-8 ' }
-            });
-
+            })
             const data = await res.json();
+
             dispatch(addUser(data.data))
             dispatch(setAuthenticate(true));
             dispatch(setCurrentUser(data.data));

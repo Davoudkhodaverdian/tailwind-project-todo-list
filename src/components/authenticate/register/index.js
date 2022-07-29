@@ -2,17 +2,8 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import Form from './../form';
 import useSendData from './useSendData';
-import ReactLogo from './../../../images/logo.svg';
-import PairProgrammingImage from './../../../images/undraw_pair_programming_re.svg';
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 function Register() {
 
-    
-    const authenticate = useSelector((state) => state.authenticate.authenticate);
-    const navigate = useNavigate();
-
-    if (authenticate) navigate("/");
     const [state, setState] = useState({ name: "", email: "", password: "" })
     const setValueInput = (name, event) => { setState(prevState => ({ ...prevState, [name]: event.target.value })) }
 
@@ -33,14 +24,15 @@ function Register() {
             <div className="md:flex flex-row w-[calc(100%-16px)]  md:max-w-[1000px] rounded shadow-lg p-4 bg-white  mx-2">
                 <div className='w-full'>
                     <div className='flex'>
-                        <div className='flex  items-center'><img src={ReactLogo} width={50} alt="logo" /></div>
+                        <div className='flex  items-center'><img src="/images/logo.svg" width={50} alt="logo" /></div>
+                        <div className='flex  items-center'><img src="/images/nextLogo.svg" width={50} alt="logo" /></div>
                     </div>
                     <h2 className="mt-6 text-3xl font-extrabold text-gray-900 text-right">ثبت نام</h2>
                     <Form type="register" confirmHandler={checkInputs} setValueInput={setValueInput} loading={loading} />
-                    <Link to="/login" className='hover:text-blue-700 transition'><div>قبلا ثبت نام کرده اید</div></Link>
+                    <Link to="/login" className='hover:text-blue-700 transition' ><div>قبلا ثبت نام کرده اید</div></Link>
                 </div>
                 <div className='max-w-[500px] md:flex flex-col justify-center items-center hidden'>
-                    <img src={PairProgrammingImage} />
+                    <img src='./images/undraw_pair_programming_re.svg' />
                 </div>
             </div>
         </div>

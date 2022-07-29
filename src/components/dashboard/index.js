@@ -4,17 +4,13 @@
 import Header from './header';
 import { useState } from 'react';
 import MenubarDynamic from './menubar/menubarDynamic'
-import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 
 function Dashbord({ children }) {
 
     const [sidebar, setSidebar] = useState(false);
     const sendSidebarState = (show) => { setSidebar(show) }
 
-    const authenticate = useSelector((state) => state.authenticate.authenticate);
-    const navigate = useNavigate();
-    if (!authenticate) navigate("/");
+
 
     return (
         <div className='pr-0 md:flex flex-row overflow-hidden dark:bg-slate-800 dark:text-white'>

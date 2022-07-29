@@ -22,7 +22,9 @@ function Form({ type, confirmHandler, setValueInput, loading }) {
             }
             <div className="mx-1 my-4">
                 <Link to="/">
+                   
                         <input type="submit" name="submit" value="بازگشت" className="px-3 rounded text-white text-center bg-red-500 font-bold drop-shadow hover:bg-red-600 active:bg-red-700 focus:ring focus:ring-red-300 mx-1" />
+                   
                 </Link>
                 <ConfirmButton confirmHandler={confirmHandler} loading={loading} type={type} />
             </div>
