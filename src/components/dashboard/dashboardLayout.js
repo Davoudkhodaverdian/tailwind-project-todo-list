@@ -1,6 +1,6 @@
 
-import Dashbord from "./dashboard";
-
+import Dashbord from "./index";
+import { memo } from "react";
 
 function DashboardLayout({ children }) {
 
@@ -8,10 +8,9 @@ function DashboardLayout({ children }) {
         <div >
             <Dashbord>
                 {children}
-                <div className='text-center'>Footer</div>
             </Dashbord>
         </div>
     );
 }
 
-export default DashboardLayout;
+export default memo(DashboardLayout);

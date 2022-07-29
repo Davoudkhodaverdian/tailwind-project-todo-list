@@ -2,39 +2,34 @@
 import { useState } from 'react';
 import { addTodo } from "../../store/slices/todoSlice"
 import { useDispatch } from 'react-redux'
-import axios from 'axios';
-
+import { toast } from 'react-toastify';
 
 function AddTodo() {
 
     const [inputTodo, setInputTodo] = useState("");
-
-
     const dispatch = useDispatch()
-
-    const inputTodoHandler = (event) => {
-
-        setInputTodo(event.target.value)
-    }
+    const inputTodoHandler = (event) => { setInputTodo(event.target.value) }
 
     const addTodoHandler = async (event) => {
 
         if (inputTodo.length > 0) {
             try {
-                let response = await axios.post('https://629ef5bce67470ca4dec9bcb.endapi.io/todos', { text: inputTodo, done: false });
+                let res = await fetch(`https://629ef5bce67470ca4dec9bcb.endapi.io/todos`, {
+                    method: "POST",
+                    body: JSON.stringify({ text: inputTodo, done: false }),
+                    headers: { 'Content-Type': 'application/json', 'charset': 'utf-8 ' }
+                });
+                const data = await res.json();
+                
+                dispatch(addTodo(data.data))
+                toast(<div className='vazir-matn-font'>مورد نظر اضافه شد todo</div>)
+                setInputTodo("");
 
-                dispatch(addTodo(response.data.data))
-                setInputTodo("")
-            } catch (error) {
-                console.log(error)
-            }
-
-        }
-
+            } catch (error) {console.log(error)}
+        } else { alert("مقداری وارد نشده") }
     }
 
     return (
-
         <div className="flex mt-4">
             <input className="shadow border rounded w-full py-2 px-3 mr-4 text-gray-700" placeholder="Add Todo"
                 onChange={inputTodoHandler}
@@ -44,8 +39,6 @@ function AddTodo() {
                 Add
             </button>
         </div>
-
-
     );
 }
 

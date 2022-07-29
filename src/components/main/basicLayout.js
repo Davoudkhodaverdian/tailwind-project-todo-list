@@ -6,8 +6,7 @@ function BasicLayout({children}) {
     return (
         <div>
             <Navbar/>
-            {children}
-            <div className='text-center'>Footer</div>
+            {children}         
         </div>
     );
 }

@@ -1,6 +1,8 @@
-import { removeTodo, toggleDoneTodo } from "../../store/slices/todoSlice"
+
 import { useDispatch } from 'react-redux';
-import axios from "axios";
+import { toast } from "react-toastify";
+import { removeTodo, toggleDoneTodo } from "../../store/slices/todoSlice"
+import PropTypes from 'prop-types';
 
 function NarmalItem({ data, setEditItemHandler }) {
 
@@ -10,28 +12,26 @@ function NarmalItem({ data, setEditItemHandler }) {
     const removeTodoHandler = async () => {
 
         try {
-            let response = await axios.delete(`https://629ef5bce67470ca4dec9bcb.endapi.io/todos/${data.id}`);
-            dispatch(removeTodo(data.id))
-        } catch (error) {
-            console.log(error)
-
-        }
-
+            let res = await fetch(`https://629ef5bce67470ca4dec9bcb.endapi.io/todos/${data.id}`, {
+                method: "DELETE", headers: { 'Content-Type': 'application/json', 'charset': 'utf-8 ' }
+            });
+            dispatch(removeTodo(data.id));
+            toast(<div className='vazir-matn-font'>حذف انجام شد</div>);
+        } catch (error) { console.log(error) }
     }
 
-    //toggleTodoHandler sent id to todoSlice toggleDoneTodo 
+    //toggleTodoHandler sent id to todoSlice toggleDoneTodo
     const toggleTodoHandler = async () => {
 
         try {
-            let response = await axios.put(`https://629ef5bce67470ca4dec9bcb.endapi.io/todos/${data.id}`, {
-                done: !data.done
+            let res = await fetch(`https://629ef5bce67470ca4dec9bcb.endapi.io/todos/${data.id}`, {
+                method: "PUT",
+                body: JSON.stringify({ done: !data.done }),
+                headers: { 'Content-Type': 'application/json', 'charset': 'utf-8 ' }
             });
-            dispatch(toggleDoneTodo(data.id))
-        } catch (error) {
-            console.log(error)
-
-        }
-
+            dispatch(toggleDoneTodo(data.id));
+            toast(<div className='vazir-matn-font'>ویرایش انجام شد</div>);
+        } catch (error) { console.log(error) }
     }
 
     return (
@@ -47,7 +47,7 @@ function NarmalItem({ data, setEditItemHandler }) {
                 onClick={removeTodoHandler} >
                 Remove</button>
             <button className="flex-shrink-0 p-2 ml-2 border-2 rounded text-blue-700 border-blue-700 hover:text-white hover:bg-blue-700"
-                onClick={setEditItemHandler.bind(null,true)} >
+                onClick={setEditItemHandler.bind(null, true)} >
                 edit</button>
         </>
 
@@ -57,3 +57,8 @@ function NarmalItem({ data, setEditItemHandler }) {
 }
 
 export default NarmalItem;
+
+NarmalItem.propTypes = {
+    data: PropTypes.object,
+    setEditItemHandler: PropTypes.func
+};
