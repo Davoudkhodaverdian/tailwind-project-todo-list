@@ -1,12 +1,15 @@
 
-import Navbar from "./navbar/navbar";
-
-function BasicLayout({children}) {
+import Navbar from "./navbar";
+import { ToastContainer } from 'react-toastify';
+function BasicLayout({ children }) {
 
     return (
         <div>
-            <Navbar/>
-            {children}         
+            <div className="dark:bg-slate-800 dark:text-white">
+                <Navbar />
+                {children}
+                <ToastContainer />
+            </div>
         </div>
     );
 }

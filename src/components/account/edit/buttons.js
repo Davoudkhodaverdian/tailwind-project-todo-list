@@ -15,7 +15,7 @@ export default function ButtonsEditAccount({ setEdit, edit, dataChanged }) {
     const currentUser = useSelector(state => state.currentUser.currentUser);
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);
-    
+
     const confirmEditHandler = async () => {
 
         //some user data is changed
@@ -40,6 +40,7 @@ export default function ButtonsEditAccount({ setEdit, edit, dataChanged }) {
             const responseData = data.data;
             dispatch(setCurrentUser(responseData))
             setEdit(false)
+
             toast(<div className='vazir-matn-font'>ویرایش انجام شد</div>);
 
         } catch (error) { console.log(error) }
@@ -49,10 +50,16 @@ export default function ButtonsEditAccount({ setEdit, edit, dataChanged }) {
         <div>
             {
                 edit ? (
-                   
-                        <button className={`px-3 m-2 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300`}
-                            onClick={confirmEditHandler}
-                            >ثبت ویرایش {loading ? <Loading /> : ""}</button>
+
+                    <button className={`px-3 m-2 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300`}
+                        onClick={confirmEditHandler}
+
+                    >
+                        <div className='flex'>
+                            <div>ثبت ویرایش</div>
+                            <div>{loading ? <Loading /> : ""}</div>
+                        </div>
+                    </button>
 
                 ) : <button className={`px-3 m-2 rounded text-white text-center bg-violet-500 font-bold drop-shadow hover:bg-violet-600 active:bg-violet-700 focus:ring focus:ring-violet-300`}
                     onClick={() => setEdit(true)}>ویرایش</button>

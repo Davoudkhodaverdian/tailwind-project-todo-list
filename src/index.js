@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { store, persistor } from './store/store';
 import { PersistGate } from 'redux-persist/integration/react'
 import { BrowserRouter } from "react-router-dom";
-import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,7 +18,6 @@ root.render(
           <BrowserRouter>
             <Main />
           </BrowserRouter>
-          <ToastContainer />
         </div>
       </PersistGate>
     </Provider>
